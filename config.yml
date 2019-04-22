@@ -1,0 +1,61 @@
+Ammunition:
+    Shells:
+        SHELL:
+            Material: FLINT
+    Boxes:
+        BULLET_CRATE:
+            Material: CHEST_MINECART
+
+#Every Formular supports all basic mathematical expressions like this "(2^3-1)*sin(pi/4)/ln(pi^2)"
+BasicTurret:
+    #The max level a tower can reach
+    MaxLevel: 20
+    #The Experience needed to levelUp, where x is the current level. Starting at 1.
+    LevelUpFormular: "5 + (4 * x)"
+    #The Points gained per levelUp. (Always rounded DOWN to the next whole number)
+    PointsPerLevelFormular: "2 + (x * 0)"
+    #AmmoTypes: SHELL, BOX
+    AllowedAmmoType: BOX
+    #Ammunition: You can place every Ammo from the above 'Ammunition' section here.
+    AllowedAmmunition:
+        - BULLET_CRATE
+        - ARMOR_PIERCING
+    #LevelCost determines how many points you'd have to spend to level this stat up.
+    #ValueGain determines how much value this stat gains per level up.
+    #MaxValue sets the maximum value a stat can have.
+    #BaseValue sets the starting level a stat has.
+    Stats:
+        Health:
+            LevelCost: 1
+            BaseValue: 20.0
+            ValueGain: 5.0
+            MaxValue: 80.0
+        BaseDamage:
+            LevelCost: 2
+            BaseValue: 2.0
+            ValueGain: 2.0
+            MaxValue: 40.0
+        #FireRate values fastest to slowest. Usually starting at VERY_SLOW
+        #RAPID, VERY_FAST, FAST, NORMAL, MODARATED, SLOWER, SLOW, VERY_SLOW, LETHARGIC
+        FireRate:
+            LevelCost: 10
+            BaseValue: VERY_SLOW
+            MaxValue: NORMAL
+        #ProjectileVelocity values. slowest to fastest. Usually starting at NORMAL.
+        #SLOW, NORMAL, FAST, VERY_FAST, SUDDEN_IMPACT
+        ProjectileVelocity:
+            LevelCost: 20
+            BaseValue: NORMAL
+            MaxValue: FAST
+        #Accuracy must be greater than 0 and smaller than or equal to 1.0 or else -> Exception
+        BaseAccuracy:
+            LevelCost: 8
+            BaseValue: 0.6
+            ValueGain: 0.05
+            MaxValue: 1.0
+        #Big values can compromise server performance as turrets also scan for targets at this range.
+        Range:
+            LevelCost: 4
+            BaseValue: 10.0
+            ValueGain: 2.0
+            MaxValue: 20.0

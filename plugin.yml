@@ -1,0 +1,8 @@
+name: PowerTurrets
+description: Powerfull Turrt Plugin
+main: com.gestankbratwurst.PowerTurrets.Core
+version: 1.0
+website: https://avarioncraft.de/
+author: [Gestankbratwurst, crysis992]
+depend: [CT-Core]
+api-version: 1.13
